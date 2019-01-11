@@ -12,6 +12,22 @@ import random
 
 def field(items, *args):
     assert len(args) > 0
+    if len(args)==1:
+        for item in items:
+            if args[0] in item:
+                yield item[args[0]]
+    else:
+        d={}
+        for item in items:
+            for i in args:
+                if i in item:
+                    d[i]=item[i]
+            if d:
+                yield d
+                d.clear()
+
+
+
     # Необходимо реализовать генератор 
 
 
@@ -20,5 +36,6 @@ def field(items, *args):
 # gen_random(1, 3, 5) должен выдать примерно 2, 2, 3, 2, 1
 # Hint: реализация занимает 2 строки
 def gen_random(begin, end, num_count):
-    pass
+    for i in range(num_count):
+        yield random.randint(begin,end)
     # Необходимо реализовать генератор

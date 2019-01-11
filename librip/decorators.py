@@ -35,3 +35,18 @@
 # test_4
 # 1
 # 2
+
+def print_result(func):
+    def decorated(*args,**kwargs):
+        func(*args,**kwargs)
+        print(func.__name__)
+        if (isinstance(func(*args,**kwargs),list)):
+            for i in func(*args,**kwargs):
+                print(i)
+        elif (isinstance(func(*args,**kwargs),dict)):
+            for k,v in func(*args,**kwargs).items():
+                print('{}={}'.format(k,v))
+        else: print(func(*args,**kwargs))
+        return func(*args,**kwargs)
+
+    return decorated

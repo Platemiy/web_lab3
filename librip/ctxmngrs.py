@@ -6,3 +6,9 @@
 #   sleep(5.5)
 #
 # После завершения блока должно вывестись в консоль примерно 5.5
+from time import clock
+class timer:
+    def __enter__(self):
+        clock()
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print(clock())

@@ -9,3 +9,15 @@ goods = [
 ]
 
 # Реализация задания 1
+genf=field(goods, 'title')
+for i in genf:
+    print('\'{}\''.format(i),end=' ')
+print('\n')
+genf2=field(goods, 'title', 'price')
+for i in genf2:
+    print(i,end=' ')
+print('\n')
+from librip.gens import gen_random
+gr=gen_random(70, 100, 5)
+for i in gr:
+    print(i,end=' ')
